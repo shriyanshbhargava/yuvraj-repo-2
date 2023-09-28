@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@500&family=Sedgwick+Ave+Display&display=swap");
+
+.wrapper {
+  background-color: rgb(248, 249, 250);
+  color: white;
+  display: flex;
+  flex-flow: row nowrap;
+  min-height: 100%;
+  width: 100%;
+
+}
+
+.icon {
+  align-self: center;
+  flex: 1 1 auto;
+  padding: 20px;
+
+}
+
+.content {
+  color: black;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: none;
+}
+
+.logoName {
+  font-family: "Sedgwick Ave Display", cursive;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  font-size: 50px;
+  font-weight: bolder;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.locationCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centers the cards horizontally */
+}
+
+.locationCard {
+  width: 350px;
+  padding: 5px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+}
+
+.featuresDiv{
+    margin-left: 15px;
+
+}
+
+.features {
+  background-color: rgb(255, 208, 136);;
+  width: 320px;
+  box-shadow: none;
+}
+  
+
+.alt {
+  background-color: #fcb3b2;
+}
+
+.card-deck {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 25px;
+}

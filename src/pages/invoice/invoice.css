@@ -1,0 +1,21 @@
+.invoiceParentDiv {
+  margin-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemTable {
+  width: 100%;
+  table-layout: fixed;
+  text-align: center;
+}
+
+.invoiceTableHead th {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: #01030dc1;
+  color: rgb(240, 244, 244);
+}
