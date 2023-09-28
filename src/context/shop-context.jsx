@@ -11,15 +11,13 @@ export const ShopContextProvider = (props) => {
 
   const apiToken = localStorage.getItem("apiToken");
 
-  console.log("here");
-
   const getProductList = () => {
     axios
       .get("https://cracker-shop.onrender.com/public/products/list", {})
       .then((res) => {
         setProductList(res.data.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   };
 
   useEffect(() => {
@@ -86,6 +84,7 @@ export const ShopContextProvider = (props) => {
   };
 
   const totalAmount = getTotalCartAmount();
+  console.log(totalAmount);
 
   const getTotalActualCartAmount = () => {
     let totalActualAmount = 0;
@@ -234,7 +233,6 @@ export const ShopContextProvider = (props) => {
           ...formData,
           customerCity: selectedCity,
           customerState: selectedState,
-          payableAmount: totalAmount,
           orderItems,
         },
         {

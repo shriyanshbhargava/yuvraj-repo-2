@@ -17,11 +17,7 @@ function PDFGenerator() {
   } = useContext(ShopContext);
   const divRef = useRef(null);
 
-  console.log(formData);
-
   const serialNumber = `YPM-${moment().format("DDMMYYYYhhmmss")}`;
-
-  console.log(serialNumber);
 
   const handleGeneratePDF = () => {
     const div = divRef.current;

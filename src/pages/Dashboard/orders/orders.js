@@ -45,7 +45,7 @@ const Orders = () => {
 
       alert(`Order with ID ${orderId} deleted successfully.`);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Error deleting order. Please try again.");
     }
   };

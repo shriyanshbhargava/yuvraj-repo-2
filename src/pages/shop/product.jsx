@@ -5,9 +5,8 @@ import "./shop.css";
 export const Product = (props) => {
   const { _id, productName, amount, imageUrl, content, actualPrice } =
     props.data;
-  const { addToCart, cartItems, } = useContext(ShopContext);
+  const { addToCart, cartItems } = useContext(ShopContext);
   const cartItemCount = cartItems[_id];
-  console.log(cartItemCount);
 
   const totalCartAmt = amount * cartItemCount || 0;
 

@@ -38,7 +38,7 @@ const Products = ({ product }) => {
 
       alert(`Product with ID ${productId} deleted successfully.`);
     } catch (error) {
-      console.log(error);
+      console.error(error);
       alert("Error deleting product. Please try again.");
     }
   };
