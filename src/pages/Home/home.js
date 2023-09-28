@@ -2,7 +2,6 @@ import React from "react";
 import "./home.css";
 import {
   Heart,
- 
   MagicWand,
   MapPin,
   PhoneCall,
@@ -15,7 +14,7 @@ const Home = () => {
     <div>
       <img
         className="shopBanner"
-        src="https://yuvrajpyromart.com/images/upload/home_banner_17_09_2021_08_33_25.jpg?t=290823031948"
+        src="https://yuvrajpyromart.com/images/upload/home_banner_02_09_2023_07_33_26.webp?t=280923051938"
         alt="../../assets/banners/mainPageBanner.jpg"
       />
 
