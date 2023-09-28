@@ -14,7 +14,7 @@ const Home = () => {
     <div>
       <img
         className="shopBanner"
-        src="../../assets/banners/mainPageBanner.jpg"
+        src="https://yuvrajpyromart.com/images/about.jpg"
         alt="../../assets/banners/mainPageBanner.jpg"
       />
 
