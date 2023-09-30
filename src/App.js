@@ -28,10 +28,10 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
             <Route path="/about" element={<About />} />
-            <Route path="/signin" element={<SignUp />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/productList" element={<Products />} />
-            <Route path="/users" element={<Users />} />
+            <Route path="/admin/signin" element={<SignUp />} />
+            <Route path="/admin/orders" element={<Orders />} />
+            <Route path="/admin/productList" element={<Products />} />
+            <Route path="/admin/users" element={<Users />} />
           </Routes>
           <Footer />
         </ShopContextProvider>

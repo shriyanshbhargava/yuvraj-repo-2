@@ -93,19 +93,19 @@ const Products = ({ product }) => {
       <div className="pt-3 order">
         <ul class="pagination mb-4">
           <li class="page-item">
-            <Link class="page-link" to="/users">
+            <Link class="page-link" to="/admin/users">
               {" "}
               Users{" "}
             </Link>
           </li>
           <li class="page-item ">
-            <Link class="page-link" to="/orders">
+            <Link class="page-link" to="/admin/orders">
               {" "}
               Orders{" "}
             </Link>
           </li>
           <li class="page-item active">
-            <Link class="page-link" to="/productList">
+            <Link class="page-link" to="/admin/productList">
               {" "}
               Products{" "}
             </Link>

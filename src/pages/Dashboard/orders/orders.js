@@ -17,9 +17,10 @@ function formatDate(dateString) {
   );
   return formattedDate;
 }
-
-const Orders = () => {
+const Orders = ({ order }) => {
   const { orderList, getOrderList } = useContext(ShopContext);
+  // const { orderItems, setOrderItems } = useState([]);
+
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
   const [orderId, setOrderId] = useState(null);
@@ -27,8 +28,9 @@ const Orders = () => {
   const handleClose = () => setShow(false);
   const handleClose2 = () => setShow2(false);
 
-  const handleShow = () => setShow(true);
   const handleShow2 = () => setShow2(true);
+  const handleShow = () => setShow(true);
+
   const apiToken = localStorage.getItem("apiToken");
 
   const handleDelete = async () => {
@@ -50,24 +52,69 @@ const Orders = () => {
     }
   };
 
+  const handleStatusChange = (event) => {
+    setSelectedStatus(event.target.value);
+  };
+  const [selectedStatus, setSelectedStatus] = useState("waiting");
+
+  const handleUpdateStatus = () => {
+    const apiUrl = `https://cracker-shop.onrender.com/orders/update/${orderId}`;
+    const headers = {
+      Authorization: apiToken,
+    };
+    // Create the request body
+    const requestBody = {
+      status: selectedStatus,
+    };
+
+    axios
+      .post(apiUrl, requestBody, { headers })
+      .then((response) => {
+        console.log("Order status updated successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating order status:", error);
+      });
+  };
+
+  // const handleShowItems = async () => {
+  //   try {
+  //     const url = `https://cracker-shop.onrender.com/orders/orderdetails/${orderId}`;
+  //     const headers = {
+  //       Authorization: apiToken,
+  //     };
+
+  //     const response = await axios.get(url, { headers });
+
+  //     // Assuming you are using a state management library like React's useState
+  //     setOrderItems(response.data);
+  //     handleClose();
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Error getting order details. Please try again.");
+  //   }
+  // };
+
+  // console.log(orderItems);
+
   return (
     <div>
       <div className="p-5 order">
         <ul class="pagination mb-4">
           <li class="page-item">
-            <Link class="page-link" to="/users">
+            <Link class="page-link" to="/admin/users">
               {" "}
               Users{" "}
             </Link>
           </li>
           <li class="page-item active">
-            <Link class="page-link" to="/orders">
+            <Link class="page-link" to="/admin/orders">
               {" "}
               Orders{" "}
             </Link>
           </li>
           <li class="page-item">
-            <Link class="page-link" to="/productList">
+            <Link class="page-link" to="/admin/productList">
               {" "}
               Products{" "}
             </Link>
@@ -78,7 +125,7 @@ const Orders = () => {
           <thead class="thead">
             <tr>
               <th scope="col">#</th>
-              <th scope="col">customerID</th>
+              <th scope="col">customerName</th>
               <th scope="col">Order Date</th>
               <th scope="col">orderItems</th>
               <th scope="col">Total Amount</th>
@@ -91,26 +138,37 @@ const Orders = () => {
               <tr>
                 {" "}
                 <td>{i}</td>
-                <td>{x.customerId}</td>
+                <td>{x.customerName}</td>
                 <td>{formatDate(x.createdAt)}</td>
                 <td>
                   <div>
-                    <Button variant="primary " onClick={handleShow}>
+                    <Button
+                      variant="primary "
+                      onClick={() => {
+                        handleShow();
+                        setOrderId(x._id);
+                      }}
+                    >
                       Show Items
                     </Button>
-
                     <Modal show={show} onHide={handleClose}>
                       <Modal.Header closeButton>
                         <Modal.Title>Order Details </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        {" "}
-                        {x.orderItems.map((item) => (
-                          <ul>
-                            <li key={item._id}>Product ID: {item.productId}</li>
-                            <li> Quantity: {item.quantity}</li>
-                          </ul>
-                        ))}
+                        {/* {" "}
+                        {orderItems?.map((item) => (
+                          <tr>
+                            <td>{i}</td>
+                            <td>{item.productName}</td>
+                            <td>{item.categoryName}</td>
+                            <td>{item.imageUrl}</td>
+                            <td>{item.content}</td>
+                            <td>{item.actualPrice}</td>
+                            <td>{item.amount}</td>
+                            <td>{item.createdAt}</td>
+                          </tr>
+                        ))} */}
                       </Modal.Body>
                       <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
@@ -121,7 +179,27 @@ const Orders = () => {
                   </div>
                 </td>
                 <td>{x.payableAmount}</td>
-                <td>{x.orderStatus}</td>
+                <td>
+                  {" "}
+                  <select
+                    id="status"
+                    onChange={(event) => handleStatusChange(event)}
+                    value={selectedStatus}
+                  >
+                    <option value="waiting">Waiting</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                  </select>
+                  <button
+                    onClick={() => {
+                      handleUpdateStatus(selectedStatus);
+                      setOrderId(x._id);
+                    }}
+                  >
+                    Update Status
+                  </button>
+                </td>
                 <td>
                   <div>
                     <Button

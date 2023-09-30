@@ -19,6 +19,7 @@ function PDFGenerator() {
 
   const serialNumber = `YPM-${moment().format("DDMMYYYYhhmmss")}`;
 
+
   const handleGeneratePDF = () => {
     const div = divRef.current;
 
@@ -118,7 +119,7 @@ function PDFGenerator() {
                     <div class="table-responsive">
                       <thead>
                         <tr className="invoiceTableHead">
-                          <th>Item</th>
+                          <th >Item</th>
                           <th>Acutal Price</th>
                           <th>Price</th>
                           <th>Quantity</th>

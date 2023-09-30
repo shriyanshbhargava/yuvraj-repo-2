@@ -61,6 +61,9 @@ export const ShopContextProvider = (props) => {
   useEffect(() => {
     getUserList();
   }, []);
+  
+
+
 
   const getDefaultCart = () => {
     let cart = {};
@@ -139,7 +142,7 @@ export const ShopContextProvider = (props) => {
 
       if (data.length > 0) {
         localStorage.setItem("apiToken", data);
-        navigate("/orders");
+        navigate("/admin/orders");
         getOrderList();
         getUserList();
         getProductList();
