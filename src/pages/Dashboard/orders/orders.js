@@ -17,7 +17,8 @@ function formatDate(dateString) {
   );
   return formattedDate;
 }
-const Orders = ({ order }) => {
+
+const Orders = () => {
   const { orderList, getOrderList } = useContext(ShopContext);
   // const { orderItems, setOrderItems } = useState([]);
 
@@ -52,114 +53,113 @@ const Orders = ({ order }) => {
     }
   };
 
-  const OrderStatusUpdate = ({ order }) => {
-    const [selectedStatus, setSelectedStatus] = useState("waiting");
+  const [selectedStatus, setSelectedStatus] = useState("waiting");
 
-    const handleStatusChange = (event) => {
-      setSelectedStatus(event.target.value);
+  const handleStatusChange = (event) => {
+    setSelectedStatus(event.target.value);
+  };
+
+  const handleUpdateStatus = () => {
+    const url = `https://cracker-shop.onrender.com/orders/update/`;
+    const headers = {
+      Authorization: apiToken,
     };
 
-    const handleUpdateStatus = () => {
-      const url = `https://cracker-shop.onrender.com/orders/update/${order._id}`;
-      const headers = {
-        Authorization: apiToken,
-      };
-
-      // Create the request body
-      const requestBody = {
-        status: selectedStatus,
-      };
-
-      axios
-        .post(url, requestBody, { headers })
-        .then((response) => {
-          console.log("Order status updated successfully:", response.data);
-        })
-        .catch((error) => {
-          console.error("Error updating order status:", error);
-        });
+    // Create the request body
+    const requestBody = {
+      status: selectedStatus,
     };
 
-    // const handleShowItems = async () => {
-    //   try {
-    //     const url = `https://cracker-shop.onrender.com/orders/orderdetails/${orderId}`;
-    //     const headers = {
-    //       Authorization: apiToken,
-    //     };
+    axios
+      .post(url, requestBody, { headers })
+      .then((response) => {
+        console.log("Order status updated successfully:", response.data);
+      })
+      .catch((error) => {
+        console.error("Error updating order status:", error);
+      });
+  };
 
-    //     const response = await axios.get(url, { headers });
+  // const handleShowItems = async () => {
+  //   try {
+  //     const url = `https://cracker-shop.onrender.com/orders/orderdetails/${orderId}`;
+  //     const headers = {
+  //       Authorization: apiToken,
+  //     };
 
-    //     // Assuming you are using a state management library like React's useState
-    //     setOrderItems(response.data);
-    //     handleClose();
-    //   } catch (error) {
-    //     console.error(error);
-    //     alert("Error getting order details. Please try again.");
-    //   }
-    // };
+  //     const response = await axios.get(url, { headers });
 
-    // console.log(orderItems);
+  //     // Assuming you are using a state management library like React's useState
+  //     setOrderItems(response.data);
+  //     handleClose();
+  //   } catch (error) {
+  //     console.error(error);
+  //     alert("Error getting order details. Please try again.");
+  //   }
+  // };
 
-    return (
-      <div>
-        <div className="p-5 order">
-          <ul class="pagination mb-4">
-            <li class="page-item">
-              <Link class="page-link" to="/admin/users">
-                {" "}
-                Users{" "}
-              </Link>
-            </li>
-            <li class="page-item active">
-              <Link class="page-link" to="/admin/orders">
-                {" "}
-                Orders{" "}
-              </Link>
-            </li>
-            <li class="page-item">
-              <Link class="page-link" to="/admin/productList">
-                {" "}
-                Products{" "}
-              </Link>
-            </li>
-          </ul>
+  // console.log(orderItems);
 
-          <table class="table-dark w-75">
-            <thead class="thead">
+  return (
+    <div>
+      <div className="p-5 order">
+        <ul class="pagination mb-4">
+          <li class="page-item">
+            <Link class="page-link" to="/admin/users">
+              {" "}
+              Users{" "}
+            </Link>
+          </li>
+          <li class="page-item active">
+            <Link class="page-link" to="/admin/orders">
+              {" "}
+              Orders{" "}
+            </Link>
+          </li>
+          <li class="page-item">
+            <Link class="page-link" to="/admin/productList">
+              {" "}
+              Products{" "}
+            </Link>
+          </li>
+        </ul>
+
+        <table class="table-dark w-75">
+          <thead class="thead">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">customerName</th>
+              <th scope="col">Order Date</th>
+              <th scope="col">orderItems</th>
+              <th scope="col">Total Amount</th>
+              <th scope="col">Order Status</th>
+              <th scope="col">Cancel The Order</th>
+            </tr>
+          </thead>
+          <tbody className="text-dark orderBody">
+            {orderList.map((x, i) => (
               <tr>
-                <th scope="col">#</th>
-                <th scope="col">customerName</th>
-                <th scope="col">Order Date</th>
-                <th scope="col">orderItems</th>
-                <th scope="col">Total Amount</th>
-                <th scope="col">Order Status</th>
-                <th scope="col">Cancel The Order</th>
-              </tr>
-            </thead>
-            <tbody className="text-dark orderBody">
-              {orderList.map((x, i) => (
-                <tr>
-                  {" "}
-                  <td>{i}</td>
-                  <td>{x.customerName}</td>
-                  <td>{formatDate(x.createdAt)}</td>
-                  <td>
-                    <div>
-                      <Button
-                        variant="primary "
-                        onClick={() => {
-                          handleShow();
-                          setOrderId(x._id);
-                        }}
-                      >
-                        Show Items
-                      </Button>
-                      <Modal show={show} onHide={handleClose}>
-                        <Modal.Header closeButton>
-                          <Modal.Title>Order Details </Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>
-                          {/* {" "}
+                {" "}
+                <td>{i}</td>
+                <td>{x.customerName}</td>
+                <td>{formatDate(x.createdAt)}</td>
+                <td>
+                  <div>
+                    <Button
+                      variant="primary "
+                      onClick={() => {
+                        handleShow();
+                        setOrderId(x._id);
+                      }}
+                    >
+                      Show Items
+                    </Button>
+                    <Modal show={show} onHide={handleClose}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Order Details </Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>
+                        {/* {" "}
                         {orderItems?.map((item) => (
                           <tr>
                             <td>{i}</td>
@@ -172,64 +172,64 @@ const Orders = ({ order }) => {
                             <td>{item.createdAt}</td>
                           </tr>
                         ))} */}
-                        </Modal.Body>
-                        <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose}>
-                            OK
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                    </div>
-                  </td>
-                  <td>{x.payableAmount}</td>
-                  <td>
-                    <select
-                      id="status"
-                      onChange={handleStatusChange}
-                      value={selectedStatus}
-                    >
-                      <option value="waiting">Waiting</option>
-                      <option value="confirmed">Confirmed</option>
-                      <option value="delivered">Delivered</option>
-                      <option value="cancelled">Cancelled</option>
-                    </select>
-                    <button
+                      </Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                          OK
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                  </div>
+                </td>
+                <td>{x.payableAmount}</td>
+                <td>
+                  <select
+                    id="status"
+                    onChange={handleStatusChange}
+                    value={selectedStatus}
+                  >
+                    <option value="waiting">Waiting</option>
+                    <option value="confirmed">Confirmed</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                  </select>
+                  <button
+                    onClick={() => {
+                      handleUpdateStatus();
+                    }}
+                  >
+                    Update Status
+                  </button>
+                </td>
+                <td>
+                  <div>
+                    <Button
+                      variant="primary "
                       onClick={() => {
-                        handleUpdateStatus();
+                        handleShow2();
+                        setOrderId(x._id);
                       }}
                     >
-                      Update Status
-                    </button>
-                  </td>
-                  <td>
-                    <div>
-                      <Button
-                        variant="primary "
-                        onClick={() => {
-                          handleShow2();
-                          setOrderId(x._id);
-                        }}
-                      >
-                        <Trash />
-                      </Button>
+                      <Trash />
+                    </Button>
 
-                      <Modal show={show2} onHide={handleClose2}>
-                        <Modal.Header closeButton>
-                          <Modal.Title>Are You Sure?</Modal.Title>
-                        </Modal.Header>
-                        <Modal.Body>This order will be Canceled.</Modal.Body>
-                        <Modal.Footer>
-                          <Button variant="secondary" onClick={handleClose2}>
-                            No
-                          </Button>
-                          <Button variant="primary" onClick={handleDelete}>
-                            Yes
-                          </Button>
-                        </Modal.Footer>
-                      </Modal>
-                    </div>
-                  </td>
-                  {/* <td>
+                    <Modal show={show2} onHide={handleClose2}>
+                      <Modal.Header closeButton>
+                        <Modal.Title>Are You Sure?</Modal.Title>
+                      </Modal.Header>
+                      <Modal.Body>This order will be Canceled.</Modal.Body>
+                      <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose2}>
+                          No
+                        </Button>
+                        <Button variant="primary" onClick={handleDelete}>
+                          Yes
+                        </Button>
+                      </Modal.Footer>
+                    </Modal>
+                  </div>
+                </td>
+                {/* <td>
                   {" "}
                   <DropdownButton
                     id="dropdown-basic-button"
@@ -242,17 +242,17 @@ const Orders = ({ order }) => {
                 </td>
                 <th scope="col">Order Status</th>
                 <td></td> */}
-                </tr>
-              ))}
-              {orderList.length === 0 && (
-                <tr>
-                  <td>
-                    <b>No data found to display.</b>
-                  </td>
-                </tr>
-              )}
+              </tr>
+            ))}
+            {orderList.length === 0 && (
+              <tr>
+                <td>
+                  <b>No data found to display.</b>
+                </td>
+              </tr>
+            )}
 
-              {/* <tr>
+            {/* <tr>
               <td>aaa</td>
               <td>customerName</td>
               <td>OrderDate</td>
@@ -289,11 +289,10 @@ const Orders = ({ order }) => {
                 </div>
               </td>
             </tr> */}
-            </tbody>
-          </table>
-        </div>
+          </tbody>
+        </table>
       </div>
-    );
-  };
+    </div>
+  );
 };
 export default Orders;

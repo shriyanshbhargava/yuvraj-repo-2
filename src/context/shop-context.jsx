@@ -1,6 +1,6 @@
 import { createContext, useEffect, useState } from "react";
 import axios from "axios";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export const ShopContext = createContext(null);
 
@@ -41,7 +41,7 @@ export const ShopContextProvider = (props) => {
 
   useEffect(() => {
     getOrderList();
-  }, []);
+  }, );
 
   //userList api
 
@@ -60,7 +60,7 @@ export const ShopContextProvider = (props) => {
 
   useEffect(() => {
     getUserList();
-  }, []);
+  },);
   
 
 
