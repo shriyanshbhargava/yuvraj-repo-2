@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Trash } from "phosphor-react";
@@ -45,6 +45,14 @@ const Users = ({ user }) => {
     }
   };
 
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("apiToken");
+
+    navigate("/admin/signin");
+  };
+
   return (
     <div>
       <div className="p-5 order">
@@ -68,6 +76,10 @@ const Users = ({ user }) => {
             </Link>
           </li>
         </ul>
+
+        <button className="btn btn-danger m-3 mt-0" onClick={handleLogout}>
+          Logout
+        </button>
         <table class="table-dark w-100">
           <thead class="thead">
             <tr>

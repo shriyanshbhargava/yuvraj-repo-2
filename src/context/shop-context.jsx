@@ -6,6 +6,7 @@ export const ShopContext = createContext(null);
 
 export const ShopContextProvider = (props) => {
   const [productList, setProductList] = useState([]);
+
   const [orderList, setOrderList] = useState([]);
   const [userList, setUserList] = useState([]);
 
@@ -23,6 +24,7 @@ export const ShopContextProvider = (props) => {
   useEffect(() => {
     getProductList();
   }, []);
+  
 
   // orderlist api
 
@@ -41,7 +43,8 @@ export const ShopContextProvider = (props) => {
 
   useEffect(() => {
     getOrderList();
-  }, );
+  }, []);
+
 
   //userList api
 
@@ -60,9 +63,7 @@ export const ShopContextProvider = (props) => {
 
   useEffect(() => {
     getUserList();
-  },);
-  
-
+  }, []);
 
 
   const getDefaultCart = () => {
@@ -87,7 +88,6 @@ export const ShopContextProvider = (props) => {
   };
 
   const totalAmount = getTotalCartAmount();
-  console.log(totalAmount);
 
   const getTotalActualCartAmount = () => {
     let totalActualAmount = 0;

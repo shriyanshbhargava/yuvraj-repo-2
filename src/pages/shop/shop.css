@@ -41,4 +41,13 @@ th {
   color: rgb(240, 244, 244);
 }
 
+@media screen and (min-width: 2650px) and (min-height: 1440px) {
+  .tableHead th {
+
+  }
+}
+
+
+
+
 

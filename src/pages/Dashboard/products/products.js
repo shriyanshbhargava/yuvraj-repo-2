@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../dashboard.css";
 import { ShopContext } from "../../../context/shop-context";
 import { useContext } from "react";
@@ -69,6 +69,15 @@ const Products = ({ product }) => {
     });
   };
 
+  const navigate = useNavigate();
+
+
+  const handleLogout = () => {
+    localStorage.removeItem("apiToken");
+
+    navigate("/admin/signin");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -111,6 +120,10 @@ const Products = ({ product }) => {
             </Link>
           </li>
         </ul>
+
+        <button className="btn btn-danger m-3 mt-0" onClick={handleLogout}>
+          Logout
+        </button>
 
         <div>
           <Button variant="primary " className="mb-2" onClick={handleShow}>

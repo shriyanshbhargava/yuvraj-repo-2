@@ -1,10 +1,10 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../dashboard.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ShopContext } from "../../../context/shop-context";
 import { useContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Trash } from "phosphor-react";
 import axios from "axios";
@@ -20,7 +20,12 @@ function formatDate(dateString) {
 
 const Orders = () => {
   const { orderList, getOrderList } = useContext(ShopContext);
-  // const { orderItems, setOrderItems } = useState([]);
+  
+  const tempStatuses = orderList.map(x => x.orderStatus)
+
+  const [orderStatuses, setOrderStatuses] = useState([...tempStatuses]);
+
+
 
   const [show, setShow] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -55,12 +60,14 @@ const Orders = () => {
 
   const [selectedStatus, setSelectedStatus] = useState("waiting");
 
-  const handleStatusChange = (event) => {
+  const handleStatusChange = (i, event) => {
+    orderStatuses[i] = event.target.value;
+    setOrderStatuses(orderStatuses);
     setSelectedStatus(event.target.value);
   };
 
   const handleUpdateStatus = () => {
-    const url = `https://cracker-shop.onrender.com/orders/update/`;
+    const url = `https://cracker-shop.onrender.com/orders/update/${orderId}`;
     const headers = {
       Authorization: apiToken,
     };
@@ -73,32 +80,44 @@ const Orders = () => {
     axios
       .post(url, requestBody, { headers })
       .then((response) => {
-        console.log("Order status updated successfully:", response.data);
+        alert("Order status updated successfully:", response.data);
+        getOrderList();
       })
       .catch((error) => {
-        console.error("Error updating order status:", error);
+        alert("Error updating order status:", error);
       });
   };
 
-  // const handleShowItems = async () => {
-  //   try {
-  //     const url = `https://cracker-shop.onrender.com/orders/orderdetails/${orderId}`;
-  //     const headers = {
-  //       Authorization: apiToken,
-  //     };
+  const navigate = useNavigate();
 
-  //     const response = await axios.get(url, { headers });
+  const handleLogout = () => {
+    localStorage.removeItem("apiToken");
 
-  //     // Assuming you are using a state management library like React's useState
-  //     setOrderItems(response.data);
-  //     handleClose();
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert("Error getting order details. Please try again.");
-  //   }
+    navigate("/admin/signin");
+  };
+
+  const [orderItemList, setOrderItemList] = useState(null); // State to store the fetched data
+
+  const getOrderItemList = () => {
+    axios
+      .get(`https://cracker-shop.onrender.com/orders/orderdetails/${orderId}`, {
+        headers: {
+          Authorization: apiToken,
+        },
+      })
+      .then((res) => {
+        setOrderItemList(res.data.data);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  useEffect(() => {
+    getOrderItemList();
+  }, []);
+
+  // const handleButtonClick = async () => {
+
   // };
-
-  // console.log(orderItems);
 
   return (
     <div>
@@ -123,6 +142,9 @@ const Orders = () => {
             </Link>
           </li>
         </ul>
+        <button className="btn btn-danger m-3 mt-0" onClick={handleLogout}>
+          Logout
+        </button>
 
         <table class="table-dark w-75">
           <thead class="thead">
@@ -148,33 +170,64 @@ const Orders = () => {
                     <Button
                       variant="primary "
                       onClick={() => {
-                        handleShow();
+                        getOrderItemList();
                         setOrderId(x._id);
+                        handleShow();
                       }}
                     >
                       Show Items
                     </Button>
-                    <Modal show={show} onHide={handleClose}>
+                    <Modal
+                      show={show}
+                      onHide={handleClose}
+                      style={{ fontSize: "15px" }}
+                    >
                       <Modal.Header closeButton>
                         <Modal.Title>Order Details </Modal.Title>
                       </Modal.Header>
                       <Modal.Body>
-                        {/* {" "}
-                        {orderItems?.map((item) => (
-                          <tr>
-                            <td>{i}</td>
-                            <td>{item.productName}</td>
-                            <td>{item.categoryName}</td>
-                            <td>{item.imageUrl}</td>
-                            <td>{item.content}</td>
-                            <td>{item.actualPrice}</td>
-                            <td>{item.amount}</td>
-                            <td>{item.createdAt}</td>
-                          </tr>
-                        ))} */}
+                        {" "}
+                        <table className="orderItemList">
+                          <thead>
+                            <tr>
+                              <th>Product Name</th>
+                              <th>Category Name</th>
+                              <th>Image URL</th>
+                              <th>Content</th>
+                              <th>Actual Price</th>
+                              <th>Amount</th>
+                              <th>Created At</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {orderItemList?.map((item, index) => (
+                              <tr key={index}>
+                                <td>{item.productName}</td>
+                                <td className="">{item.categoryName}</td>
+                                <td>
+                                  <img
+                                    src={item.imageUrl}
+                                    width="25"
+                                    height="25"
+                                    alt={item.imageUrl}
+                                  />
+                                </td>
+                                <td>{item.content}</td>
+                                <td>{item.actualPrice}</td>
+                                <td>{item.amount}</td>
+                                <td>{formatDate(item.createdAt)}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
                       </Modal.Body>
                       <Modal.Footer>
-                        <Button variant="secondary" onClick={handleClose}>
+                        <Button
+                          variant="secondary"
+                          onClick={() => {
+                            handleClose();
+                          }}
+                        >
                           OK
                         </Button>
                       </Modal.Footer>
@@ -185,20 +238,23 @@ const Orders = () => {
                 <td>
                   <select
                     id="status"
-                    onChange={handleStatusChange}
-                    value={selectedStatus}
+                    onChange={(event) => {
+                      handleStatusChange(i, event);
+                      setOrderId(x._id);
+                    }}
+                    value={orderStatuses[i]}
                   >
                     <option value="waiting">Waiting</option>
                     <option value="confirmed">Confirmed</option>
                     <option value="delivered">Delivered</option>
                     <option value="cancelled">Cancelled</option>
                   </select>
-                  <button
+                  <button className="btn btn-primary mt-2 "
                     onClick={() => {
                       handleUpdateStatus();
                     }}
                   >
-                    Update Status
+                   <div style={{ fontSize: '14px'}}>Update Status</div> 
                   </button>
                 </td>
                 <td>
@@ -295,4 +351,5 @@ const Orders = () => {
     </div>
   );
 };
+
 export default Orders;
