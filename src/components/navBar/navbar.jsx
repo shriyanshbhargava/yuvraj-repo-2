@@ -31,7 +31,6 @@ export const Navbar = () => {
           <Link to="/about"> About </Link>
           <Link to="/shop"> Products </Link>
           <Link to="/contact"> Contact </Link>
-          <Link to="/invoice"> Invoice </Link>
           <Link to="/cart">
             <ShoppingCart size={32} />
           </Link>
