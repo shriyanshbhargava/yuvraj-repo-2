@@ -14,7 +14,7 @@ export const Shop = () => {
         src="https://yuvrajpyromart.com/images/pricelist.jpg"
         alt="../../assets/banners/mainPageBanner.jpg"
       />
-      <tr className="tableHead">
+      <thead className="tableHead">
         <th>Image</th>
         <th>Product Name</th>
         <th>Content</th>
@@ -23,7 +23,7 @@ export const Shop = () => {
         <th>Add To Cart</th>
         <th>Quantity</th>
         <th>Total</th>
-      </tr>
+      </thead>
       {productList.map((product) => (
         <Product data={product} />
       ))}

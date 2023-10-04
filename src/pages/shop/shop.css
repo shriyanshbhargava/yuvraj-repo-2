@@ -40,14 +40,3 @@ th {
   background-color: #01030dc1;
   color: rgb(240, 244, 244);
 }
-
-@media screen and (min-width: 2650px) and (min-height: 1440px) {
-  .tableHead th {
-
-  }
-}
-
-
-
-
-

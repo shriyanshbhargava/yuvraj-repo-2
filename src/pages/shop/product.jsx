@@ -11,23 +11,21 @@ export const Product = (props) => {
   const totalCartAmt = amount * cartItemCount || 0;
 
   return (
-    <table className="dataTable">
-      <tr>
-        <td>
-          <img src={imageUrl} width="50" height="50" alt={imageUrl} />
-        </td>
-        <td>{productName}</td>
-        <td>{content}</td>
-        <td style={{ textDecoration: "line-through" }}>₹ {actualPrice}</td>
-        <td>₹ {amount}</td>
-        <td>
-          <button className="addToCartBttn" onClick={() => addToCart(_id)}>
-            Add To Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
-          </button>
-        </td>
-        <td> {cartItemCount}</td>
-        <td>₹ {totalCartAmt}</td>
-      </tr>
-    </table>
+    <tr className="dataTable">
+      <td>
+        <img src={imageUrl} width="50" height="50" alt={imageUrl} />
+      </td>
+      <td>{productName}</td>
+      <td>{content}</td>
+      <td style={{ textDecoration: "line-through" }}>₹ {actualPrice}</td>
+      <td>₹ {amount}</td>
+      <td>
+        <button className="addToCartBttn" onClick={() => addToCart(_id)}>
+          Add To Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
+        </button>
+      </td>
+      <td> {cartItemCount}</td>
+      <td>₹ {totalCartAmt}</td>
+    </tr>
   );
 };

@@ -12,7 +12,7 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer class="text-center text-lg-start text-white mt-3" style={{backgroundColor: "#E45443"}}>
+      <footer class="text-center text-lg-start text-white mt-3 bottom-0" style={{backgroundColor: "#E45443"}}>
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
           <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
