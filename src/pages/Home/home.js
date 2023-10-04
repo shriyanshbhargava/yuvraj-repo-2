@@ -23,7 +23,7 @@ const Home = () => {
           <div class="icon">
             <img
               width={700}
-              src="https://yuvrajpyromart.com/images/yuvrajshowroom.jpg"
+              src="https://yuvrajpyromart.com/images/contact.jpg"
               alt="../../assets/banners/mainPageBanner.jpg"
             />
           </div>
