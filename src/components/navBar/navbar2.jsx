@@ -20,7 +20,7 @@ export const Navbar2 = () => {
         <h5>
           Total Quantity : {totalQuantity} | Total Amount : ₹ {totalAmount} |{" "}
           <Link to="/cart">
-            <ShoppingCart color="#f4ecf2" size={32} />
+          Cart <ShoppingCart color="#f4ecf2" size={32} />
           </Link>
         </h5>
       </div>

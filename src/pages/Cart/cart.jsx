@@ -86,7 +86,7 @@ export const Cart = () => {
 
           <div class="form-outline mb-4">
             <div class="col-3">
-              <div>
+              <div className="states">
                 <select onChange={handleCItySelect} value={selectedCity}>
                   <option value="">Select a city</option>
                   {cities.map((city) => (
@@ -97,7 +97,7 @@ export const Cart = () => {
                 </select>
                 {selectedCity && <p>You selected: {selectedCity}</p>}
               </div>
-              <div className="w-100">
+              <div className="states">
                 <label>Select a state: </label>
                 <select onChange={handleStateSelect} value={selectedState}>
                   <option value="">Select a state</option>
