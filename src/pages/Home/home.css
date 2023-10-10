@@ -54,6 +54,18 @@
   box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
 }
 
+.locationCardExtend {
+  width: 350px;
+  padding: 5px;
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
+}
+
 .featuresDiv {
   margin-left: 15px;
 }
@@ -75,14 +87,10 @@
   margin-top: 25px;
 }
 @media screen and (max-width: 768px) {
-  /* Adjust styles for smaller screens */
-  body {
-    font-size: 16px; /* Decrease font size for smaller screens */
+  .icon {
+    padding: 0px;
   }
-
-  .container {
-    width: 100%; /* Make containers full-width on smaller screens */
+  .tradeMarks img{
+    width: 50px;
   }
-
-  /* You can add more styles and adjust your layout as needed */
 }

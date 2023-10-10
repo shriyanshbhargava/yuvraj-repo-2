@@ -13,12 +13,13 @@ const Home = () => {
   return (
     <div>
       <div class="row">
-        <div class="wrapper pt-4 pb-4 ">
+        <div class="wrapper pb-4 ">
           <div class="icon">
             <img
               width={700}
-              src="https://yuvrajpyromart.com/images/about.jpg"
+              src="https://yuvrajpyromart.com/images/upload/home_banner_02_09_2023_07_33_26.webp?t=101023082341"
               alt="../../assets/banners/mainPageBanner.jpg"
+              className="shopBanner"
             />
           </div>
           <div class="content">
@@ -44,7 +45,7 @@ const Home = () => {
 
           <div className="container locationCards">
             <div class="card locationCard">
-              <h2 class="p-5">TVS Nagar</h2>
+              <h2 class="p-3 cardHead">TVS Nagar</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -60,7 +61,7 @@ const Home = () => {
               </div>
             </div>
             <div class="card locationCard">
-              <h2 class="p-5">Airport road</h2>
+              <h2 class="p-3 cardHead">Airport road</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -76,7 +77,7 @@ const Home = () => {
           </div>
           <div className="container locationCards">
             <div class="card locationCard">
-              <h2 class="p-5">Thanichiyam Village</h2>
+              <h2 class="p-3 cardHead">Thanichiyam Village</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -89,7 +90,7 @@ const Home = () => {
               </div>
             </div>
             <div class="card locationCard">
-              <h2 class="p-5"> Virudhunagar</h2>
+              <h2 class="p-3 cardHead"> Virudhunagar</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -103,8 +104,8 @@ const Home = () => {
                 </p>
               </div>
             </div>
-            <div class="card locationCard">
-              <h2 class="p-5">Subramaniapuram</h2>
+            <div class="card locationCardExtend">
+              <h2 class="p-3 cardHead">Subramaniapuram</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
