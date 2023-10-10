@@ -56,9 +56,11 @@
     height: 60px;
   }
 
-  .topNavbar {
-    padding: 3px;
-    font-size: 11px;
+  .mobileTopNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 2px;
   }
 
   .middleNavbar {
@@ -83,7 +85,7 @@
     font-weight: bolder;
   }
 
-  .logoCart{
+  .logoCart {
     width: 18px;
   }
 
