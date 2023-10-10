@@ -7,14 +7,12 @@
   flex-flow: row nowrap;
   min-height: 100%;
   width: 100%;
-
 }
 
 .icon {
   align-self: center;
   flex: 1 1 auto;
   padding: 20px;
-
 }
 
 .content {
@@ -35,6 +33,7 @@
   font-weight: bolder;
   letter-spacing: 3px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .locationCards {
@@ -55,17 +54,15 @@
   box-shadow: -1px 1px 34px -13px rgba(0, 0, 0, 0.75);
 }
 
-.featuresDiv{
-    margin-left: 15px;
-
+.featuresDiv {
+  margin-left: 15px;
 }
 
 .features {
-  background-color: rgb(255, 208, 136);;
+  background-color: rgb(255, 208, 136);
   width: 320px;
   box-shadow: none;
 }
-  
 
 .alt {
   background-color: #fcb3b2;
@@ -76,4 +73,16 @@
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 25px;
+}
+@media screen and (max-width: 768px) {
+  /* Adjust styles for smaller screens */
+  body {
+    font-size: 16px; /* Decrease font size for smaller screens */
+  }
+
+  .container {
+    width: 100%; /* Make containers full-width on smaller screens */
+  }
+
+  /* You can add more styles and adjust your layout as needed */
 }

@@ -22,6 +22,7 @@ export const Navbar = () => {
       <div className="middleNavbar">
         <img
           width={250}
+          className="logoNav"
           src="https://yuvrajpyromart.com/images/yuvrajlogo.png"
         />
       </div>
@@ -32,7 +33,7 @@ export const Navbar = () => {
           <Link to="/shop"> Products </Link>
           <Link to="/contact"> Contact </Link>
           <Link to="/cart">
-           Cart <ShoppingCart size={32} />
+           Cart <ShoppingCart className="logoCart" />
           </Link>
           <Link to="/admin/signin"> SignIn </Link>
         </div>

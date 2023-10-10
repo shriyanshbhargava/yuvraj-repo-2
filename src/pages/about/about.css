@@ -1,0 +1,24 @@
+@media only screen and (max-width: 768px) {
+  .logoMain {
+    width: 200px;
+  }
+
+  .logoName {
+    font-size: 25px;
+    display: flex;
+    align-self: center;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+  .content {
+    font-size: 15px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
+  .featuresDiv {
+    margin: 10px;
+  }
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import "./about.css";
 
 const About = () => {
   return (
@@ -11,7 +12,7 @@ const About = () => {
       <div class="wrapper pt-5 pb-5">
         <div class="icon pl-3">
           <img
-          className="p-5"
+            className="logoMain"
             width={500}
             src="https://yuvrajpyromart.com/images/yuvrajlogo.png"
             alt="../../assets/banners/mainPageBanner.jpg"
@@ -32,7 +33,6 @@ const About = () => {
         </div>
       </div>
 
-      
       <header>
         <div
           class=" text-center mt-5 bg-image"

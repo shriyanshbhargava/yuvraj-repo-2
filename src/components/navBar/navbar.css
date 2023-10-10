@@ -50,3 +50,57 @@
   text-decoration: none;
   color: white;
 }
+
+@media only screen and (max-width: 768px) {
+  .navbar-1 {
+    height: 60px;
+  }
+
+  .topNavbar {
+    padding: 3px;
+    font-size: 11px;
+  }
+
+  .middleNavbar {
+    padding: 20px;
+  }
+
+  .logoNav {
+    width: 100px;
+  }
+
+  .links-1 {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .links-1 a {
+    text-decoration: none;
+    color: rgb(5, 0, 0);
+    margin-left: 10px;
+    font-size: 12px;
+    font-weight: bolder;
+  }
+
+  .logoCart{
+    width: 18px;
+  }
+
+  .navbar-2 {
+    text-align: center;
+    background-color: rgb(19, 19, 19);
+    color: whitesmoke;
+    padding: 10px 0px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    animation: 0.5s ease-in-out;
+    z-index: 5;
+  }
+
+  .navbar-2 a {
+    text-decoration: none;
+    color: white;
+  }
+}
