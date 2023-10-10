@@ -1,5 +1,5 @@
 import {
-    Copyright,
+  Copyright,
   Envelope,
   FacebookLogo,
   InstagramLogo,
@@ -8,12 +8,15 @@ import {
   WhatsappLogo,
 } from "phosphor-react";
 import React from "react";
-import "./Footer.css"
+import "./Footer.css";
 
 const Footer = () => {
   return (
     <div>
-      <footer class="text-center text-lg-start text-white mt-3 bottom-0" style={{backgroundColor: "#E45443"}}>
+      <footer
+        class="text-center text-lg-start text-white mt-3 bottom-0"
+        style={{ backgroundColor: "#E45443" }}
+      >
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
           <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -58,28 +61,30 @@ const Footer = () => {
                 </p>
               </div>
 
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footerLinks">
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 ">
                 <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
-                <p>
-                  <a href="#!" class="text-reset">
-                    Home
-                  </a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">
-                    About
-                  </a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">
-                    Products
-                  </a>
-                </p>
-                <p>
-                  <a href="#!" class="text-reset">
-                    Contact
-                  </a>
-                </p>
+                <div className="footerLinks">
+                  <p>
+                    <a href="#!" class="text-reset">
+                      Home
+                    </a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-reset">
+                      About
+                    </a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-reset">
+                      Products
+                    </a>
+                  </p>
+                  <p>
+                    <a href="#!" class="text-reset">
+                      Contact
+                    </a>
+                  </p>
+                </div>
               </div>
 
               <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
@@ -105,9 +110,7 @@ const Footer = () => {
           </div>
         </section>
 
-        <div
-          class="text-center p-4"
-        >
+        <div class="text-center p-4">
           <div className="container locationCards">
             <div class="card locationCard">
               <h2 class="p-3 cardHead">TVS Nagar</h2>
@@ -184,9 +187,9 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div
-          class="text-center copyright"
-        >Copyright <Copyright/> 2023, Yuvraj Fireworks  All rights reserved</div>
+          <div class="text-center copyright">
+            Copyright <Copyright /> 2023, Yuvraj Fireworks All rights reserved
+          </div>
         </div>
       </footer>
     </div>
