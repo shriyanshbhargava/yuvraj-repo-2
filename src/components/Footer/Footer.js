@@ -8,6 +8,7 @@ import {
   WhatsappLogo,
 } from "phosphor-react";
 import React from "react";
+import "./Footer.css"
 
 const Footer = () => {
   return (
@@ -40,7 +41,7 @@ const Footer = () => {
           </div>
         </section>
 
-        <section class="">
+        <section class="footerMainDiv">
           <div class="container text-center text-md-start mt-5">
             <div class="row mt-3">
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
@@ -57,7 +58,7 @@ const Footer = () => {
                 </p>
               </div>
 
-              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+              <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4 footerLinks">
                 <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
                 <p>
                   <a href="#!" class="text-reset">
@@ -109,7 +110,7 @@ const Footer = () => {
         >
           <div className="container locationCards">
             <div class="card locationCard">
-              <h2 class="p-5">TVS Nagar</h2>
+              <h2 class="p-3 cardHead">TVS Nagar</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -125,7 +126,7 @@ const Footer = () => {
               </div>
             </div>
             <div class="card locationCard">
-              <h2 class="p-5">Airport road</h2>
+              <h2 class="p-3 cardHead">Airport road</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -141,7 +142,7 @@ const Footer = () => {
           </div>
           <div className="container locationCards">
             <div class="card locationCard">
-              <h2 class="p-5">Thanichiyam Village</h2>
+              <h2 class="p-3 cardHead">Thanichiyam Village</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -154,7 +155,7 @@ const Footer = () => {
               </div>
             </div>
             <div class="card locationCard">
-              <h2 class="p-5"> Virudhunagar</h2>
+              <h2 class="p-3 cardHead"> Virudhunagar</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -168,8 +169,8 @@ const Footer = () => {
                 </p>
               </div>
             </div>
-            <div class="card locationCard">
-              <h2 class="p-5">Subramaniapuram</h2>
+            <div class="card locationCardExtend">
+              <h2 class="p-3 cardHead">Subramaniapuram</h2>
               <div class="card-body">
                 <h5 class="card-title">Yuvraj Pyro Mart</h5>
                 <p class="card-text ">
@@ -184,7 +185,7 @@ const Footer = () => {
             </div>
           </div>
           <div
-          class="text-center pt-5 w-100 "
+          class="text-center copyright"
         >Copyright <Copyright/> 2023, Yuvraj Fireworks  All rights reserved</div>
         </div>
       </footer>

@@ -10,22 +10,14 @@ import {
 } from "phosphor-react";
 
 const Home = () => {
- 
-
   return (
     <div>
-      <img
-        className="shopBanner"
-        src="https://yuvrajpyromart.com/images/about.jpg"
-        alt="../../assets/banners/mainPageBanner.jpg"
-      />
-
       <div class="row">
         <div class="wrapper pt-4 pb-4 ">
           <div class="icon">
             <img
               width={700}
-              src="https://yuvrajpyromart.com/images/contact.jpg"
+              src="https://yuvrajpyromart.com/images/about.jpg"
               alt="../../assets/banners/mainPageBanner.jpg"
             />
           </div>

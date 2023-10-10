@@ -1,0 +1,25 @@
+@media screen and (max-width: 768px) {
+  .locationCard {
+    width: 120px;
+    margin: 10px;
+  }
+
+  .locationCardExtend {
+    width: 160px;
+    margin: 10px;
+  }
+  .cardHead {
+    font-size: 15px;
+  }
+
+  .card-title {
+    font-size: 10px;
+  }
+  .card-body {
+    font-size: 8px;
+  }
+  .copyright {
+    font-size: 10px;
+    padding-top: 100px;
+  }
+}
