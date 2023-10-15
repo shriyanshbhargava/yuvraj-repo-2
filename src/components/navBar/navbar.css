@@ -97,7 +97,7 @@
 
 @media only screen and (max-width: 768px) {
   .navbar {
-    position: relative;
+    position: fixed;
   }
 
   .nav-links {
@@ -118,11 +118,13 @@
   }
 
   .nav-item {
-    border-top: 1px solid black;
+    padding: 6px;
   }
 
   .nav-icon {
     display: flex;
+    color: white;
+    padding-left: 10px;
   }
 }
 
