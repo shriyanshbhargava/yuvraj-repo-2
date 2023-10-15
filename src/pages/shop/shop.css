@@ -40,3 +40,48 @@ th {
   background-color: #01030dc1;
   color: rgb(240, 244, 244);
 }
+
+@media only screen and (max-width: 768px) {
+  .tableHead {
+    display: none;
+  }
+
+  .dataTable {
+    width: 60%;
+    text-align: center;
+    font-size: 8px;
+  }
+
+  .dataTable td {
+    border: none;
+    padding: 2px;
+    border: 1px solid #e7dddd;
+    padding-top: 3px;
+    padding-bottom: 3px;
+  }
+
+  .addToCartBttn {
+    width: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin: 2px;
+    border-radius: 15px;
+  }
+
+  .addToCartBttn:hover {
+    background-color: rgb(19, 19, 19);
+    color: white;
+    cursor: pointer;
+    transition: 0.25s;
+  }
+
+  .productName {
+    width: 17%;
+  }
+
+  .productImage {
+    width: 15px;
+  }
+}

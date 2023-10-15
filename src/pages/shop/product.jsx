@@ -13,13 +13,13 @@ export const Product = (props) => {
   return (
     <tr className="dataTable">
       <td>
-        <img src={imageUrl} width="50" height="50" alt={imageUrl} />
+        <img className="productImage" src={imageUrl} width="50" height="50" alt={imageUrl} />
       </td>
-      <td>{productName}</td>
+      <td className="productName">{productName}</td>
       <td>{content}</td>
       <td style={{ textDecoration: "line-through" }}>₹ {actualPrice}</td>
       <td>₹ {amount}</td>
-      <td>
+      <td className="addToCart">
         <button className="addToCartBttn" onClick={() => addToCart(_id)}>
           Add To Cart {cartItemCount > 0 && <> ({cartItemCount})</>}
         </button>

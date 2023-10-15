@@ -65,22 +65,22 @@ const Footer = () => {
                 <h6 class="text-uppercase fw-bold mb-4">Useful links</h6>
                 <div className="footerLinks">
                   <p>
-                    <a href="#!" class="text-reset">
+                    <a href="./" class="text-reset">
                       Home
                     </a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">
+                    <a href="./about" class="text-reset">
                       About
                     </a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">
+                    <a href="./shop" class="text-reset">
                       Products
                     </a>
                   </p>
                   <p>
-                    <a href="#!" class="text-reset">
+                    <a href="./contact" class="text-reset">
                       Contact
                     </a>
                   </p>
