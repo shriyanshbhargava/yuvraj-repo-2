@@ -40,6 +40,7 @@
   color: whitesmoke;
   padding: 10px 0px;
   position: fixed;
+  font-size: 20px;
   bottom: 0;
   width: 100%;
   animation: 0.5s ease-in-out;
@@ -93,6 +94,10 @@
   display: none;
   font-size: 2rem;
   cursor: pointer;
+}
+
+.cartLogo {
+  font-size: 30px;
 }
 
 @media only screen and (max-width: 768px) {
@@ -165,10 +170,15 @@
   .navbar-2 {
     text-align: center;
     padding: 5px;
+    font-size: 14px;
   }
 
   .navbar-2 a {
     text-decoration: none;
     color: white;
+  }
+
+  .cartLogo {
+    font-size: 18px;
   }
 }

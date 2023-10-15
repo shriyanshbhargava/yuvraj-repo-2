@@ -17,12 +17,12 @@ export const Navbar2 = () => {
         className="navbar-2"
         style={{ display: totalQuantity === 0 ? "none" : "block" }}
       >
-        <h5>
+        <p>
           Total Quantity : {totalQuantity} | Total Amount : ₹ {totalAmount} |{" "}
           <Link to="/cart">
-          Cart <ShoppingCart color="#f4ecf2" size={32} />
+          Cart <ShoppingCart className="cartLogo" color="#f4ecf2" />
           </Link>
-        </h5>
+        </p>
       </div>
     </div>
   );
