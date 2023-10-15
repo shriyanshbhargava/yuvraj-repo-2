@@ -127,6 +127,11 @@ export const Navbar = () => {
                 </li>
               </li>
             </ul>
+            <Link to="/shop">
+              <button type="button" class="btn btn-light orderNow">
+                Order Now
+              </button>
+            </Link>
           </nav>
         )}
       </div>
