@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/shop-context";
 import { CartItem } from "./cart-item";
 import "./cart.css";
@@ -19,10 +19,18 @@ export const Cart = () => {
     selectedState,
   } = useContext(ShopContext);
   const totalAmount = getTotalCartAmount();
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener("change", (e) => setMatches(e.matches));
+  }, []);
 
   return (
     <div className="cartMain">
-      <div className="d-flex m-5 cartShip">
         <div className="userDetails">
           <h1 className="mb-5">Enter Shipping Details</h1>
           <form className="userDetailsForm">
@@ -115,17 +123,6 @@ export const Cart = () => {
               </div>
             </div>
 
-            {/* <div class="form-outline mb-4">
-            <textarea
-              class="form-control"
-              id="form6Example7"
-              rows="4"
-            ></textarea>
-            <label class="form-label" for="form6Example7">
-              Additional information
-            </label>
-          </div> */}
-
             <button
               type="submit"
               onClick={handleFormSubmit}
@@ -137,30 +134,57 @@ export const Cart = () => {
             </button>
           </form>
         </div>
-      </div>
-      <div className="cartItems">
         <div className="vr d-flex justify-content-center"></div>
-        <div className="cart">
-          <div className="cartTitle">
-            <h1>Your Cart Items</h1>
-          </div>
-          <div className="cart">
-            {productList.map((product) => {
-              if (cartItems[product._id] || 0) {
-                return <CartItem data={product} />;
-              }
-            })}
-          </div>
+        <div>
+          {matches && (
+            <div>
+              <div className="cart">
+                <div className="cartTitle">
+                  <h1>Your Cart Items</h1>
+                </div>
+                <div className="cart">
+                  {productList.map((product) => {
+                    if (cartItems[product._id] || 0) {
+                      return <CartItem data={product} />;
+                    }
+                  })}
+                </div>
 
-          {totalAmount > 0 ? (
-            <div className="checkout">
-              <h4> Subtotal: ₹ {totalAmount} </h4>
+                {totalAmount > 0 ? (
+                  <div className="checkout">
+                    <h4> Subtotal: ₹ {totalAmount} </h4>
+                  </div>
+                ) : (
+                  <h1 className="cartEmpty"> Your Shopping Cart is Empty</h1>
+                )}
+              </div>
             </div>
-          ) : (
-            <h1 className="cartEmpty"> Your Shopping Cart is Empty</h1>
+          )}
+          {!matches && (
+            <div className="cartMob">
+              <div className="cart">
+                <div className="cartTitle">
+                  <h1>Your Cart Items</h1>
+                </div>
+                <div className="cart">
+                  {productList.map((product) => {
+                    if (cartItems[product._id] || 0) {
+                      return <CartItem data={product} />;
+                    }
+                  })}
+                </div>
+
+                {totalAmount > 0 ? (
+                  <div className="checkout">
+                    <h4> Subtotal: ₹ {totalAmount} </h4>
+                  </div>
+                ) : (
+                  <h1 className="cartEmpty"> Your Shopping Cart is Empty</h1>
+                )}
+              </div>
+            </div>
           )}
         </div>
-      </div>
     </div>
   );
 };

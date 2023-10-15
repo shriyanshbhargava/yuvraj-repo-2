@@ -1,11 +1,21 @@
 import { Navbar2 } from "../../components/navBar/navbar2";
 import { Product } from "./product";
+import { ProductMob } from "./productMob";
 import "./shop.css";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/shop-context";
 
 export const Shop = () => {
   const { productList } = useContext(ShopContext);
+  const [matches, setMatches] = useState(
+    window.matchMedia("(min-width: 768px)").matches
+  );
+
+  useEffect(() => {
+    window
+      .matchMedia("(min-width: 768px)")
+      .addEventListener("change", (e) => setMatches(e.matches));
+  }, []);
 
   return (
     <div className="shop">
@@ -24,9 +34,23 @@ export const Shop = () => {
         <th>Quantity</th>
         <th>Total</th>
       </thead>
-      {productList.map((product) => (
-        <Product data={product} />
-      ))}
+      <div>
+        {matches && (
+          <div>
+            {productList.map((product) => (
+              <Product data={product} />
+            ))}
+          </div>
+        )}
+        {!matches && (
+          <div>
+            {productList.map((product) => (
+              <ProductMob data={product} />
+            ))}
+          </div>
+        )}
+      </div>
+
       <Navbar2 />
     </div>
   );

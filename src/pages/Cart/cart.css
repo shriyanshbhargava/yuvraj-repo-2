@@ -10,7 +10,7 @@
   display: flex;
   flex-direction: column;
   align-items: left;
-  margin: 1rem;
+  margin: 2rem;
 }
 
 .vr {
@@ -18,8 +18,13 @@
   margin-right: 3rem;
 }
 
+.cartMain {
+  display: flex;
+  margin: 5;
+}
+
 .cartEmpty {
-  margin-top: 8rem;
+  margin-top: 2rem;
 }
 
 .countHandler input {
@@ -53,6 +58,7 @@
 .cartTable {
   text-align: center;
   table-layout: fixed;
+  width: 80%;
 }
 
 .cartTable td,
@@ -71,6 +77,35 @@ th {
   border: 2px solid black;
 }
 
+.productName {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.cartCardMob {
+  border: 1px solid black;
+  background-color: rgb(254, 255, 129);
+  margin: 3px;
+  border-radius: 4px;
+  display: flex;
+  width: 300px;
+  padding: 10px 10px 10px 10px;
+}
+
+.cartCardMiddle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 25px;
+}
+
+.cartCardEnd {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-left: 10px;
+}
+
 @media only screen and (max-width: 768px) {
   .cartTable td,
   th {
@@ -80,9 +115,18 @@ th {
     border: 1px solid #e1b9b9;
   }
 
-  .cartTableMob {
-    width: 100%;
-    table-layout: fixed;
-    text-align: center;
+  .cartMob {
+    display: flex;
+    align-self: baseline;
+  }
+
+  .cartEmpty {
+    font-size: 15px;
+  }
+
+  .cartMain {
+    display: flex;
+    flex-direction: column;
+    margin: 5;
   }
 }
