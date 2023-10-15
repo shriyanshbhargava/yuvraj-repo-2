@@ -4,6 +4,7 @@ import { ProductMob } from "./productMob";
 import "./shop.css";
 import { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../../context/shop-context";
+import { Helmet } from "react-helmet";
 
 export const Shop = () => {
   const { productList } = useContext(ShopContext);
@@ -19,6 +20,15 @@ export const Shop = () => {
 
   return (
     <div className="shop">
+      <Helmet>
+        <link
+          rel="icon"
+          type="image/ico"
+          href="../../../public/yuvrajlogo.ico"
+        />
+        <title>Yuvraj Pyro Mart</title>
+        <meta name="description" content="Light Up Your Celebrations!" />
+      </Helmet>
       <img
         className="shopBanner"
         src="https://yuvrajpyromart.com/images/pricelist.jpg"
