@@ -13,6 +13,7 @@ import About from "./pages/about/about";
 import Orders from "./pages/Dashboard/orders/orders";
 import Products from "./pages/Dashboard/products/products";
 import Users from "./pages/Dashboard/users/users";
+import socialMediaButton from "./components/socialMedia/socialMediaButton";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           </Routes>
           <Footer />
         </ShopContextProvider>
+        <socialMediaButton />
       </Router>
     </div>
   );

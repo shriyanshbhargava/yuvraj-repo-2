@@ -13,14 +13,11 @@ export const Navbar2 = () => {
 
   return (
     <div>
-      <div
-        className="navbar-2"
-        style={{ display: totalQuantity === 0 ? "none" : "block" }}
-      >
+      <div className="navbar-2">
         <p>
           Total Quantity : {totalQuantity} | Total Amount : ₹ {totalAmount} |{" "}
           <Link to="/cart">
-          Cart <ShoppingCart className="cartLogo" color="#f4ecf2" />
+            Cart <ShoppingCart className="cartLogo" color="#f4ecf2" />
           </Link>
         </p>
       </div>
