@@ -33,8 +33,7 @@ export const ProductMob = (props) => {
             <input
               value={cartItems[_id]}
               defaultValue={0}
-          
-                min={0}
+              min={0}
               onChange={(e) => updateCartItemCount(Number(e.target.value), _id)}
             />
             <button onClick={() => addToCart(_id)}> + </button>
