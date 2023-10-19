@@ -1,18 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import {
-  AlignCenterVertical,
-  FacebookLogo,
-  InstagramLogo,
-  MapPin,
-  PhoneCall,
-  ShoppingCart,
-  SlidersHorizontal,
-  WhatsappLogo,
-} from "phosphor-react";
+import { MapPin, PhoneCall, ShoppingCart, WhatsappLogo } from "phosphor-react";
 import "./navbar.css";
 import { FiMenu, FiX } from "react-icons/fi";
-
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -133,7 +123,6 @@ export const Navbar = () => {
                 Order Now
               </button>
             </Link>
-           
           </nav>
         )}
       </div>

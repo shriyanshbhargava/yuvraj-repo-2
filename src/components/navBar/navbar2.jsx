@@ -13,13 +13,18 @@ export const Navbar2 = () => {
 
   return (
     <div>
-      <div className="navbar-2">
-        <p>
-          Total Quantity : {totalQuantity} | Total Amount : ₹ {totalAmount} |{" "}
+      <div className="navbar-2 p-3 ">
+        <div>
+          <p>
+            Total Quantity : {totalQuantity} | Total Amount : ₹ {totalAmount}
+          </p>
+        </div>
+
+        <div>
           <Link to="/cart">
             Cart <ShoppingCart className="cartLogo" color="#f4ecf2" />
           </Link>
-        </p>
+        </div>
       </div>
     </div>
   );
