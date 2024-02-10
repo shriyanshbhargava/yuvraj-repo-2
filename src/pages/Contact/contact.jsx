@@ -47,6 +47,7 @@ export const Contact = () => {
       >
         <div
           id="embed-map-canvas"
+          
           style={{ height: "100%", width: "100%", maxWidth: "100%" }}
         >
           <iframe
